@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import Home from "./Home";
+import Login from "./Login";
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //Create your states here.
+    const [walletAddress, setWalletAddress] = useState();
+
+
+    return (
+        //Create your conditional component here for routing.
+        <div>
+        {walletAddress ? (<Home setWalletAddress={setWalletAddress} walletAddress={walletAddress} />) : (<Login setWalletAddress={setWalletAddress} />)};
     </div>
-  );
+    );
 }
 
 export default App;
